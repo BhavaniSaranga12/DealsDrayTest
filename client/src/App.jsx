@@ -33,7 +33,7 @@ function App() {
 
       const response = await axios({
         method: 'get',
-        url: 'http://localhost:3000/api/validate',
+        url: 'https://deals-dray-test-backend.vercel.app/api/validate',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',

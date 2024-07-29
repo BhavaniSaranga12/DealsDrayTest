@@ -75,7 +75,7 @@ const deleteEmployees = async (id) => {
     const token = localStorage.getItem('token');
     const response = await axios( {
       method:'delete',
-      url:`http://localhost:3000/api/admin/delete/${id}`,
+      url:`https://deals-dray-test-backend.vercel.app/api/admin/delete/${id}`,
       headers: {
         'Authorization':`Bearer ${token}`,
         'Content-Type': 'application/json'
@@ -125,7 +125,7 @@ const formik = useFormik({
       console.log(values)
       const response = await axios( {
          method:'put',
-         url:`http://localhost:3000/api/admin/editemployee/${selectedEmployee._id}`,
+         url:`https://deals-dray-test-backend.vercel.app/api/admin/editemployee/${selectedEmployee._id}`,
          headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ const authMiddleware = require('./middlewares/authMiddleware');
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cors({
-  origin:'http://localhost:5173'
+  origin:'https://deals-dray-test-five.vercel.app'
 }))
 
 
@@ -26,17 +26,21 @@ const connectToDatabase = async () => {
     }
   };
   connectToDatabase();
-  app.post('/',async (req,res)=>{
-    const newUser= new admin({
-        username:req.body.username,
-        password:await bcrypt.hash(req.body.password,10)
-    });
-    newUser.save();
-    res.json(
-        'successfull'
-    )
-  
+
+  app.get('/',async(req,res)=>{
+    res.send("Hello everyone")
   })
+  // app.post('/',async (req,res)=>{
+  //   const newUser= new admin({
+  //       username:req.body.username,
+  //       password:await bcrypt.hash(req.body.password,10)
+  //   });
+  //   newUser.save();
+  //   res.json(
+  //       'successfull'
+  //   )
+  
+  // })
 
   app.use('/api/admin',adminRoute);
   app.get('/api/validate',authMiddleware,(req,res)=>{

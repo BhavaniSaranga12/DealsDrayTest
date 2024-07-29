@@ -29,7 +29,7 @@ const Login = () => {
           try {
             const response= await axios({
               method:'post',
-              url:'http://localhost:3000/api/admin/login',
+              url:'https://deals-dray-test-backend.vercel.app/api/admin/login',
               data:{
                 username:values.username,
                 password:values.password

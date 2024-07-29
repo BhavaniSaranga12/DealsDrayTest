@@ -42,7 +42,7 @@ const CreateEmployee = () => {
 
       try {
         const token=localStorage.getItem('token')
-        const response = await axios.post('http://localhost:3000/api/admin/createemployee', formData, {
+        const response = await axios.post('https://deals-dray-test-backend.vercel.app/api/admin/createemployee', formData, {
           headers: {
             'Authorization':`Bearer ${token}`,
             'Content-Type': 'multipart/form-data'
