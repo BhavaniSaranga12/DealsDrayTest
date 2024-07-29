@@ -12,12 +12,13 @@ const authMiddleware = require('./middlewares/authMiddleware');
 
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use(cors({
-  origin:'https://deals-dray-test-five.vercel.app',
+const corsoption={
+  origin:['https://deals-dray-test-five.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type', 'Authorization'], 
-}))
+}
+app.use(cors(corsoption))
 
 
 const connectToDatabase = async () => {
